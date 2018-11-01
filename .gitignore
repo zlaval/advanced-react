@@ -22,3 +22,5 @@ yarn-error.log*
 
 *.iml
 .idea/
+
+/server/node_modules
