@@ -2,7 +2,9 @@ import React from 'react'
 import {Provider} from 'react-redux'
 import {applyMiddleware, compose, createStore} from 'redux'
 import reducers from 'reducers'
-import reduxPromise from 'redux-promise'
+import async from 'middlewares/async'
+import stateValidator from 'middlewares/stateValidator'
+//import reduxPromise from 'redux-promise'
 
 
 export default ({children, initialState = {}}) => {
@@ -13,7 +15,7 @@ export default ({children, initialState = {}}) => {
         reducers,
         initialState,
         composeEnhancers(
-            applyMiddleware(reduxPromise)
+            applyMiddleware(async, stateValidator)
         )
     );
 
